@@ -1,0 +1,9 @@
+1) creare due liste di account twitter: una per i supporters, una per i contrari
+
+2) creare un vocabolario per ogni gruppo (S/N) e calcolare le time frequency per ogni parola nel vocabolario
+
+3) prendere le top 1000 parole e costruire la SAX associata ad ognuna di esse
+
+4) fare K-means sulle SAX string (raggruppare termini dall'andamento temporale simile)
+
+5) per ogni coppia di termini costruire il co-occourrence graph
