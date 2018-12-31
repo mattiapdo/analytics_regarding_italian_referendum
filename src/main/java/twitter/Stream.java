@@ -100,7 +100,9 @@ public class Stream {
 		//twitterStream.sample();
 		
 		Twitter  twitter = new TwitterFactory(cfg.build()).getInstance();
-		
+		//System.out.println(twitter.getId()+ "\n"+twitter.getAccountSettings()+ "\n"+twitter.getAPIConfiguration()+ "\n"+twitter.getAuthorization()+ "\n");
+		//System.out.println("\n\n*"+twitter.getTermsOfService());
+		System.out.println("\n\n*"+twitter.getAPIConfiguration());
         /*
 		System.out.println("Saving public timeline.");
         try {
@@ -177,6 +179,7 @@ public class Stream {
             System.exit(-1);
         }
 		*/
+		/*
 		int statusesPerPage = 200;
         int page = 1;
         String username = "matteosalvinimi";
@@ -211,7 +214,7 @@ public class Stream {
         } catch (TwitterException te) {
             te.printStackTrace();
         }
-		
+		*/
 	}
 	
 		
