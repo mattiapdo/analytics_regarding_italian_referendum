@@ -2,44 +2,50 @@ package twitter;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 
 import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
 
 public class Users{
-
-	// Java code to illustrate reading a 
-	// CSV file line by line and store into an HashMap
-	public static HashMap<String, String> readData(String path) {
-	    HashMap<String, String> result = new HashMap<String, String>();
-
+	
+	// attribute
+	private static ArrayList<User> list = new ArrayList<User>();
+	
+	// constructor
+	@SuppressWarnings("resource")
+	public Users(String path) {
+	    
 	    try {
-	        @SuppressWarnings("resource")
-	        //CSVReader csvReader = new CSVReader(new FileReader(path));
-	        CSVReader csvReader = new CSVReaderBuilder(new FileReader(path)).withSkipLines(1).build();
-	        String[] line;
-
-	        while ((line = csvReader.readNext()) != null) {
-	            String name = line[0];
-	            String twitter_id = line[1];
-	            result.put(name, twitter_id);
-	        }
+	    	// Create an object of file reader class with CSV file as a parameter. 
+	        FileReader filereader = new FileReader(path); 
+	  
+	        // create csvReader object passing file reader as a parameter 
+	        CSVReader csvReader = new CSVReader(filereader); 
+	        String[] nextRecord; 
+	        
+	        // we are going to read data line by line 
+	        while ((nextRecord = csvReader.readNext()) != null) {
+	        	User user = new User();
+	        	user.setName(nextRecord[0]);
+	            user.setTwitterId(nextRecord[1]);
+	            user.setLabel(nextRecord[2]);
+	            System.out.println(user.name + " " + user.twitter_id + " " + user.label);
+	            this.list.add(user);
+	        } 
+	        
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
-	    return result;
 	}
 	
-	// set is the HashMap
-	HashMap<String, String> set = null;
-	
-	// the constructor
-	public Users(String path) {
-		set = readData(path);
+	// this method prints the users stored in the list
+	public static void print() {
+		for (User user : list) {
+			System.out.println(user.name + ",  " + user.twitter_id + ",  " + user.label);
+		}
 	}
-
+	
 }
 	
 

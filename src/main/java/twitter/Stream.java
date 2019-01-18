@@ -93,7 +93,6 @@ public class Stream {
 		cfg.setOAuthConsumerSecret(consumer_secret);
 		cfg.setTweetModeExtended(true);
 		
-		
 		//TwitterStream twitterStream = new TwitterStreamFactory(cfg.build()).getInstance();
 		//twitterStream.addListener(listener);
 		
@@ -154,10 +153,10 @@ public class Stream {
             System.exit(-1);
         }
 		*/
-        
         /*
+        
         try {
-        	String str_query = "from:matteorenzi since:2017-12-25 until:2017-12-28";
+        	String str_query = "from:matteorenzi since:2017-12-25 until:2017-12-28"; // since:2017-12-25 until:2017-12-28
             Query query = new Query();
             query.query(str_query);
             //query.setSinceId(1079305571336110080L);
